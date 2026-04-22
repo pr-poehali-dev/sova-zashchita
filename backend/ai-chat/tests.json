@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "AI chat response",
+      "method": "POST",
+      "path": "/",
+      "body": "{\"message\": \"Объясни что такое двоичная система счисления\", \"history\": []}",
+      "expectedStatus": 200,
+      "expectedBody": {"reply": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
