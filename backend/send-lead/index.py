@@ -57,16 +57,19 @@ def handler(event: dict, context) -> dict:
     )
 
     if token:
-        params = urllib.parse.urlencode({
-            'chat_id': chat_id,
-            'text': text,
-            'parse_mode': 'Markdown'
-        }).encode()
-        req = urllib.request.Request(
-            f'https://api.telegram.org/bot{token}/sendMessage',
-            data=params
-        )
-        urllib.request.urlopen(req, timeout=5)
+        try:
+            params = urllib.parse.urlencode({
+                'chat_id': chat_id,
+                'text': text,
+                'parse_mode': 'Markdown'
+            }).encode()
+            req = urllib.request.Request(
+                f'https://api.telegram.org/bot{token}/sendMessage',
+                data=params
+            )
+            urllib.request.urlopen(req, timeout=5)
+        except Exception:
+            pass
 
     return {
         'statusCode': 200,
