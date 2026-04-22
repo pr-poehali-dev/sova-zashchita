@@ -48,7 +48,7 @@ def handler(event: dict, context) -> dict:
 
     # Отправляем в Telegram
     token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-    chat_id = '@vvviwww'
+    chat_id = '8299205085'
     text = (
         f"📚 *Новая заявка ExamCode*\n\n"
         f"👤 Имя: {name}\n"
