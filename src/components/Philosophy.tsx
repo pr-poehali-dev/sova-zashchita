@@ -3,23 +3,23 @@ import { HighlightedText } from "./HighlightedText"
 
 const philosophyItems = [
   {
-    title: "Минимализм со смыслом",
+    title: "Системный подход",
     description:
-      "Каждый элемент имеет свое назначение и пространство для дыхания. Мы убираем лишнее, чтобы раскрыть то, что действительно важно.",
+      "Никакой воды — только структура. Каждая тема разложена по полочкам: от теории к практике, от простого к сложному. Как хороший код: чисто, логично, без лишнего.",
   },
   {
-    title: "Архитектурный подход",
+    title: "Практика каждый день",
     description:
-      "Планировки, вдохновленные структурой, ритмом и материальностью. Здания, которые говорят через пропорции и свет.",
+      "Тренировочные задания в формате реального экзамена. Пробные ОГЭ и ЕГЭ с таймером, разбор ошибок и рост баллов — всё это видно в личном кабинете.",
   },
   {
-    title: "Естественная динамика",
+    title: "AI объясняет ошибки",
     description:
-      "Движение поддерживает восприятие, но никогда не отвлекает. Анимация, которая ощущается естественно, как свет, скользящий по комнате.",
+      "Сделал ошибку — получи объяснение мгновенно. Наш AI-помощник анализирует твои ответы и даёт подсказки на языке, понятном школьнику.",
   },
   {
-    title: "Вневременная эстетика",
-    description: "Элегантный, спокойный и долговечный визуальный язык. Дизайн, который превосходит тренды и стареет с достоинством.",
+    title: "Прогресс как на дашборде",
+    description: "Графики роста баллов, статистика по темам, напоминания о занятиях. Видишь свой прогресс — понимаешь, что делать дальше.",
   },
 ]
 
@@ -51,28 +51,53 @@ export function Philosophy() {
     <section id="about" className="py-32 md:py-29">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left column - Title and image */}
+          {/* Left column */}
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наша философия</p>
-            <h2 className="text-6xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-              Дизайн с
+            <p className="text-cyan-400/70 text-sm tracking-[0.3em] uppercase mb-6 font-mono">// philosophy</p>
+            <h2 className="text-6xl md:text-6xl font-bold leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl text-white">
+              Учёба с
               <br />
-              <HighlightedText>намерением</HighlightedText>
+              <HighlightedText>кодом</HighlightedText>
             </h2>
 
-            <div className="relative hidden lg:block">
-              <img
-                src="/images/exterior.png"
-                alt="Архитектурный эскиз рабочего пространства"
-                className="opacity-90 relative z-10 w-auto"
-              />
+            <div className="relative hidden lg:block mt-8">
+              {/* Code block decoration */}
+              <div className="glass-panel rounded-2xl p-6 font-mono text-sm">
+                <div className="text-white/30 mb-3">// твой прогресс</div>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-purple-400">const</span>
+                    <span className="text-white"> математика </span>
+                    <span className="text-white/50">= </span>
+                    <span className="text-cyan-400">{"{"}</span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-white/60">баллы</span>
+                    <span className="text-white/30">: </span>
+                    <span className="text-green-400">87</span>
+                    <span className="text-white/30">,</span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-white/60">темы</span>
+                    <span className="text-white/30">: </span>
+                    <span className="text-green-400">{"[✓ алгебра, ✓ геометрия]"}</span>
+                  </div>
+                  <div>
+                    <span className="text-cyan-400">{"}"}</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-white/10">
+                    <span className="text-white/30">{">"} </span>
+                    <span className="text-green-400">Готов к экзамену!</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right column - Description and Philosophy items */}
+          {/* Right column */}
           <div className="space-y-6 lg:pt-48">
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-              Архитектура - это больше, чем конструкция. Это то, как мы воспринимаем мир. Мы создаем пространства, которые питают человеческий дух.
+            <p className="text-white/50 text-lg leading-relaxed max-w-md mb-12">
+              ExamCode — это не репетитор с тетрадкой. Это платформа, где подготовка к экзаменам выглядит как работа с настоящим IT-продуктом.
             </p>
 
             {philosophyItems.map((item, index) => (
@@ -88,10 +113,10 @@ export function Philosophy() {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex gap-6">
-                  <span className="text-muted-foreground/50 text-sm font-medium">0{index + 1}</span>
+                  <span className="text-cyan-400/40 text-sm font-medium font-mono">0{index + 1}</span>
                   <div>
-                    <h3 className="text-xl font-medium mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                    <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                    <p className="text-white/50 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>

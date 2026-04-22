@@ -27,27 +27,32 @@ export function Header() {
       className={cn(
         "fixed z-50 transition-all duration-500 my-0 py-0 rounded-none",
         scrolled || mobileMenuOpen
-          ? "bg-primary backdrop-blur-md py-4 top-4 left-4 right-4 rounded-2xl"
+          ? "glass-panel py-4 top-4 left-4 right-4 rounded-2xl"
           : "bg-transparent py-4 top-0 left-0 right-0",
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
         <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
-          <img src="/images/hously-logo.svg" alt="Пространство" width={120} height={32} className="w-auto h-6" />
+          <span className="font-mono font-bold text-xl tracking-tight">
+            <span className="text-cyan-400">&lt;</span>
+            <span className="text-white">Exam</span>
+            <span className="text-cyan-400">Code</span>
+            <span className="text-purple-400">/&gt;</span>
+          </span>
         </a>
 
         <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
           {[
             { label: "Главная", href: "#hero" },
-            { label: "Философия", href: "#about" },
-            { label: "Проекты", href: "#projects" },
-            { label: "Услуги", href: "#services" },
+            { label: "Подход", href: "#about" },
+            { label: "Предметы", href: "#projects" },
+            { label: "Курсы", href: "#services" },
             { label: "Вопросы", href: "#faq" },
           ].map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
+                className="hover:text-cyan-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-cyan-400 after:transition-all after:duration-300 text-white/80"
               >
                 {item.label}
               </a>
@@ -58,13 +63,11 @@ export function Header() {
         <a
           href="#contact"
           className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
+            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300 rounded-lg font-medium",
+            "bg-cyan-400/10 text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/20 hover:border-cyan-400/60 neon-pulse",
           )}
         >
-          Связаться
+          Начать бесплатно
         </a>
 
         <button
@@ -96,15 +99,15 @@ export function Header() {
           <ul className="flex flex-col gap-6 mb-8">
             {[
               { label: "Главная", href: "#hero" },
-              { label: "Философия", href: "#about" },
-              { label: "Проекты", href: "#projects" },
-              { label: "Услуги", href: "#services" },
+              { label: "Подход", href: "#about" },
+              { label: "Предметы", href: "#projects" },
+              { label: "Курсы", href: "#services" },
               { label: "Вопросы", href: "#faq" },
             ].map((item) => (
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-4xl font-light block"
+                  className="hover:text-cyan-400 transition-colors duration-300 text-white text-4xl font-light block"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
@@ -115,10 +118,10 @@ export function Header() {
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"
+            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-cyan-400/10 text-cyan-400 border border-cyan-400/30 rounded-lg hover:bg-cyan-400/20 transition-all duration-300 mb-4"
             onClick={closeMobileMenu}
           >
-            Связаться
+            Начать бесплатно
           </a>
         </div>
       </div>

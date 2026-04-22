@@ -26,7 +26,7 @@ export function HighlightedText({ children }: HighlightedTextProps) {
   }, [])
 
   return (
-    <span ref={spanRef} className="relative inline-block">
+    <span ref={spanRef} className="relative inline-block text-cyan-400">
       {children}
       <svg
         className="absolute -bottom-1 left-0 w-full h-4 overflow-visible"
@@ -36,7 +36,7 @@ export function HighlightedText({ children }: HighlightedTextProps) {
       >
         <path
           d="M0 8 Q50 2, 100 6 T200 8"
-          stroke="rgb(251 146 60)"
+          stroke="rgb(34 211 238)"
           strokeWidth="2"
           fill="none"
           strokeLinecap="round"
@@ -45,6 +45,7 @@ export function HighlightedText({ children }: HighlightedTextProps) {
             strokeDasharray: 200,
             strokeDashoffset: isVisible ? 0 : 200,
             transition: "stroke-dashoffset 0.8s ease-out",
+            filter: "drop-shadow(0 0 4px rgba(34, 211, 238, 0.6))",
           }}
         />
       </svg>

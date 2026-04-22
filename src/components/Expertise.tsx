@@ -1,30 +1,27 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
+import Icon from "@/components/ui/icon"
 
-const expertiseAreas = [
+const courses = [
   {
-    title: "Жилая архитектура",
-    description: "Создаем дома, которые сочетают красоту с комфортом, где каждое пространство служит и форме, и функции.",
-    icon: Home,
+    title: "Личный кабинет",
+    description: "Твой прогресс, баллы, расписание и история пробных экзаменов — всё в одном месте. Как настоящий дашборд разработчика.",
+    icon: "LayoutDashboard",
   },
   {
-    title: "Коммерческие объекты",
-    description:
-      "Проектируем рабочие пространства, которые вдохновляют на продуктивность и отражают ценности передовых организаций.",
-    icon: Building,
+    title: "Пробные экзамены",
+    description: "Реальные варианты ОГЭ и ЕГЭ с таймером и автоматической проверкой. Тренируйся в боевых условиях.",
+    icon: "Timer",
   },
   {
-    title: "Дизайн интерьеров",
-    description:
-      "Создаем интерьеры, которые гармонируют с архитектурной оболочкой, формируя целостный пространственный опыт.",
-    icon: Armchair,
+    title: "График прогресса",
+    description: "Видишь, как растут твои баллы по каждой теме. Аналитика помогает понять, что проработать перед экзаменом.",
+    icon: "TrendingUp",
   },
   {
-    title: "Градостроительство",
-    description:
-      "Формируем сообщества через продуманную интеграцию общественных пространств, зданий и природных элементов.",
-    icon: Trees,
+    title: "AI-помощник",
+    description: "Допустил ошибку — AI объяснит почему и разберёт тему заново. Доступен 24/7, никогда не устаёт.",
+    icon: "Bot",
   },
 ]
 
@@ -57,47 +54,37 @@ export function Expertise() {
     <section id="services" ref={sectionRef} className="py-32 md:py-29">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-20">
-          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши услуги</p>
-          <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-            <HighlightedText>Экспертиза</HighlightedText>, отточенная
+          <p className="text-cyan-400/70 text-sm tracking-[0.3em] uppercase mb-6 font-mono">// features</p>
+          <h2 className="text-6xl font-bold leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl text-white">
+            <HighlightedText>Инструменты</HighlightedText>, которые
             <br />
-            практикой
+            работают
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Каждый проект опирается на десятилетия совокупного опыта, создавая архитектуру, которая одновременно инновационна и вневременна.
+          <p className="text-white/50 text-lg leading-relaxed">
+            Всё необходимое для подготовки к экзамену в одной платформе. Никаких лишних вкладок — только то, что нужно.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-          {expertiseAreas.map((area, index) => {
-            const Icon = area.icon
-            return (
-              <div
-                key={area.title}
-                ref={(el) => {
-                  itemRefs.current[index] = el
-                }}
-                data-index={index}
-                className={`relative pl-8 border-l border-border transition-all duration-700 ${
-                  visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div
-                  className={`transition-all duration-1000 ${
-                    visibleItems.includes(index) ? "animate-draw-stroke" : ""
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
-                </div>
-                <h3 className="text-xl font-medium mb-4">{area.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+          {courses.map((course, index) => (
+            <div
+              key={course.title}
+              ref={(el) => {
+                itemRefs.current[index] = el
+              }}
+              data-index={index}
+              className={`relative pl-8 border-l border-cyan-400/20 transition-all duration-700 ${
+                visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="mb-4">
+                <Icon name={course.icon} className="w-10 h-10 text-cyan-400" strokeWidth={1.25} fallback="Star" />
               </div>
-            )
-          })}
+              <h3 className="text-xl font-bold mb-4 text-white">{course.title}</h3>
+              <p className="text-white/50 leading-relaxed">{course.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

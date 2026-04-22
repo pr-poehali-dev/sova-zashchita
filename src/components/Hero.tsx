@@ -117,13 +117,12 @@ export function Hero() {
   }, [animationComplete])
 
   return (
-    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hously-background.png"
-          alt="Минималистичный архитектурный интерьер"
-          className="w-full h-full object-cover object-center"
-        />
+    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+      {/* Background gradient blobs */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-purple-600/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-blue-600/8 blur-3xl" />
       </div>
 
       <div
@@ -136,31 +135,59 @@ export function Hero() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="mb-72 md:mb-60 lg:mb-80">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-secondary mb-0">{"Архитектурная студия"}</p>
+        <div className="mb-72 md:mb-60 lg:mb-80 text-center">
+          <p className="text-sm tracking-[0.3em] uppercase text-cyan-400/80 mb-4 font-mono">
+            // Онлайн-школа ОГЭ и ЕГЭ
+          </p>
 
           <h1
             ref={titleRef}
-            className="text-7xl font-medium text-balance text-center text-white mb-0 tracking-tight leading-[0.9] lg:text-8xl"
+            className="text-7xl font-bold text-balance text-center text-white mb-6 tracking-tight leading-[0.9] lg:text-8xl"
           >
-            {"Создаем пространства"}
+            {"Сдай экзамен"}
             <br />
-            <span className="text-orange-200">{"для жизни"}</span>
+            <span className="neon-text">{"как разработчик"}</span>
           </h1>
-        </div>
-      </div>
 
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        <img
-          src="/images/hously-foreground.png"
-          alt="Мраморная кухонная столешница"
-          className="w-full h-full object-cover object-center"
-        />
+          <p className="text-white/50 text-lg max-w-xl mx-auto mb-10 font-light">
+            Подготовка к ОГЭ и ЕГЭ с IT-подходом — структурно, системно, без воды
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-400 text-gray-900 font-semibold rounded-lg hover:bg-cyan-300 transition-all duration-300 neon-pulse"
+            >
+              Начать бесплатно
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 glass-panel text-white/80 rounded-lg hover:text-cyan-400 transition-all duration-300"
+            >
+              Выбрать предмет
+            </a>
+          </div>
+
+          {/* Stats row */}
+          <div className="flex flex-wrap justify-center gap-8 mt-16">
+            {[
+              { value: "1 200+", label: "учеников" },
+              { value: "94%", label: "сдали на 80+" },
+              { value: "5", label: "предметов" },
+              { value: "AI", label: "помощник 24/7" },
+            ].map((stat) => (
+              <div key={stat.label} className="glass-panel px-6 py-4 rounded-xl text-center min-w-[100px]">
+                <div className="text-2xl font-bold text-cyan-400 font-mono">{stat.value}</div>
+                <div className="text-white/50 text-xs mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {animationComplete && (
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce z-30">
-          <ArrowDown className="w-5 h-5 text-muted-foreground" />
+          <ArrowDown className="w-5 h-5 text-cyan-400/60" />
         </div>
       )}
     </section>
