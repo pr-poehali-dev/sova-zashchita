@@ -1,9 +1,11 @@
 import { useState, useEffect, MouseEvent } from "react"
+import { useNavigate } from "react-router-dom"
 import { cn } from "../lib/utils"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,15 +62,23 @@ export function Header() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300 rounded-lg font-medium",
-            "bg-cyan-400/10 text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/20 hover:border-cyan-400/60 neon-pulse",
-          )}
-        >
-          Начать бесплатно
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="text-sm text-white/50 hover:text-white/80 transition-colors px-3 py-2"
+          >
+            Кабинет
+          </button>
+          <a
+            href="#contact"
+            className={cn(
+              "inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300 rounded-lg font-medium",
+              "bg-cyan-400/10 text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/20 hover:border-cyan-400/60 neon-pulse",
+            )}
+          >
+            Начать бесплатно
+          </a>
+        </div>
 
         <button
           className="md:hidden z-50 transition-colors duration-300 text-white"

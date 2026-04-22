@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Send lead",
+      "method": "POST",
+      "path": "/",
+      "body": "{\"name\": \"Тест\", \"phone\": \"+79001234567\", \"subject\": \"Математика\"}",
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
